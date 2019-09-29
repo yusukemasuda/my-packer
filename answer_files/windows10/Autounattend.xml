@@ -44,10 +44,12 @@
                     Notice the addition of the `<Key>` element.
                 -->
                 <!-- Product Key from https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise -->
+                <!--
                 <ProductKey>
                     <Key>VTNMT-2FMYP-QCY43-QR9VK-WTVCK</Key>
                     <WillShowUI>Never</WillShowUI>
                 </ProductKey>
+                -->
             </UserData>
             <ImageInstall>
                 <OSImage>

@@ -21,7 +21,7 @@
       "winrm_password": "vagrant",
       "winrm_timeout": "{{user `winrm_timeout`}}",
 
-      "vm_name": "windows_10",
+      "vm_name": "windows10",
       "guest_additions_mode": "none",
       
       "floppy_files": [
@@ -38,9 +38,9 @@
   "post-processors": [
     {
       "keep_input_artifact": false,
-      "output": "windows_10_{{.Provider}}.box",
+      "output": "windows10_{{.Provider}}.box",
       "type": "vagrant",
-      "vagrantfile_template": "vagrantfile-windows_10.template"
+      "vagrantfile_template": "vagrantfile-windows10.template"
     }
   ],
   "provisioners": [
@@ -79,7 +79,7 @@
     "iso_checksum": "cc5f1a6f8221e61e0eff1132d43ef8e98f04cc307f045579ce8f3308ba81e505",
     "iso_checksum_type": "sha256",
     "iso_url": "https://software-download.microsoft.com/download/pr/18362.30.190401-1528.19h1_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_ja-jp.iso",
-    "autounattend": "./answer_files/windows_10/Autounattend.xml",
+    "autounattend": "./answer_files/windows10/Autounattend.xml",
     "cpus":"2",
     "memory": "2048",
     "disk_size": "61440",
