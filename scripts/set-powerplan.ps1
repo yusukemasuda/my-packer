@@ -1,20 +1,22 @@
-Try {
-  Write-Output "Set power plan to high performance"
 
-  $HighPerf = powercfg -l | %{if($_.contains("High performance")) {$_.split()[3]}}
+Set-Variable -Name POWER_PLAN_GUID_HIGH_PERF -Value "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c" -Option Constant
 
-  # $HighPerf cannot be $null, we try activate this power profile with powercfg
-  # 
-  if ($HighPerf -eq $null)
-  {
-    throw "Error: HighPerf is null"
+try {
+  Write-Output "Set power plan to High-Performance '$POWER_PLAN_GUID_HIGH_PERF'"
+  if ((POWERCFG /LIST | Where({ $_.Contains($POWER_PLAN_GUID_HIGH_PERF) })).Count -le 0) {
+    throw "Error: Power management plan 'High-Performance' does not exists"
   }
 
-  $CurrPlan = $(powercfg -getactivescheme).split()[3]
+  POWERCFG /S $POWER_PLAN_GUID_HIGH_PERF
+  if ($LASTEXITCODE -ne 0) {
+    throw "Error: Failed to configure power plan to '$POWER_PLAN_GUID_HIGH_PERF'"
+  }
 
-  if ($CurrPlan -ne $HighPerf) {powercfg -setactive $HighPerf}
+  Write-Output "Power plan High-Perfomance '$POWER_PLAN_GUID_HIGH_PERF' was successfully activated"
 
-} Catch {
-  Write-Warning -Message "Unable to set power plan to high performance"
+} catch {
+  Write-Warning -Message "Unable to set power plan to High-Perfomance '$POWER_PLAN_GUID_HIGH_PERF'"
   Write-Warning $Error[0]
 }
+
+
