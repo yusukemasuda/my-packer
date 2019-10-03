@@ -1,2 +1,2 @@
-echo Set WinRM start type to auto
-sc config winrm start= auto
+ECHO Set WinRM start type to auto
+SC config WinRM Start=Auto
