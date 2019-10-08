@@ -94,14 +94,14 @@
     "memory": "2048",
     "disk_size": "61440",
     "disk_type_id": "1",
-     "switch_name": "Default Switch",
+    "switch_name": "Default Switch",
     "headless": "false",
     "restart_timeout": "5m",
     "winrm_timeout": "6h",
     "cloud_token": "{{env `VAGRANT_CLOUD_TOKEN`}}",
     "box_tag": "ymasuda/windows10",
     "version": "{{isotime \"20060102\"}}.0.0",
-    "version_description ": "Windows10 Vagrant images updated to {{isotime \"2006-01-02\"}}.",
+    "version_description": "Windows10 Vagrant images updated to {{isotime \"2006-01-02\"}}.",
     "no_release": "false"
   }
 }
