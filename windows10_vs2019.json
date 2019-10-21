@@ -1,0 +1,71 @@
+{
+  "builders": [
+    {
+      "type": "hyperv-vmcx",
+      "clone_from_vmcx_path": "{{user `vmcx`}}",
+      
+      "headless": "{{user `headless`}}",
+      
+      "switch_name": "{{user `switch_name`}}",
+      
+      "boot_wait": "6m",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+
+      "communicator": "winrm",
+      "winrm_username": "vagrant",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "{{user `winrm_timeout`}}",
+
+      "vm_name": "windows10_vs2019",
+      "guest_additions_mode": "none"
+      
+
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "scripts": [
+        "./scripts/install-vs2019.ps1",
+        "./scripts/install-wix311.ps1",
+        "./scripts/install-wix311-vs2019.ps1"
+      ],
+      "elevated_user":     "vagrant",
+      "elevated_password": "vagrant"
+    },
+    {
+      "type": "windows-restart",
+      "restart_timeout": "{{user `restart_timeout`}}"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "vagrant",
+        "keep_input_artifact": false,
+        "output": "windows10_vs2019_{{.Provider}}.box",
+        "vagrantfile_template": "vagrant/vagrantfile-windows10.template"
+      },
+      {
+        "type": "vagrant-cloud",
+        "box_tag": "{{user `box_tag`}}",
+        "access_token": "{{user `cloud_token`}}",
+        "version": "{{user `version`}}",
+        "version_description": "{{user `version_description`}}",
+        "no_release" : "{{user `no_release`}}"
+      }
+    ]
+  ],
+  "variables": {
+    "vmcx": "./output-hyperv-iso",
+    "headless": "false",
+    "switch_name": "Default Switch",
+    "winrm_timeout": "6h",
+    "restart_timeout": "5m",
+    "cloud_token": "{{env `VAGRANT_CLOUD_TOKEN`}}",
+    "box_tag": "ymasuda/windows10_vs2019",
+    "version": "{{isotime \"20060102\"}}.0.0",
+    "version_description": "Visual Studio Vagrant images updated to {{isotime \"2006-01-02\"}}.",
+    "no_release": "false"
+  }
+}

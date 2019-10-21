@@ -35,24 +35,6 @@
       ]
     }
   ],
-  "post-processors": [
-    [
-      {
-        "type": "vagrant",
-        "keep_input_artifact": false,
-        "output": "windows10_{{.Provider}}.box",
-        "vagrantfile_template": "vagrantfile-windows10.template"
-      },
-      {
-        "type": "vagrant-cloud",
-        "box_tag": "{{user `box_tag`}}",
-        "access_token": "{{user `cloud_token`}}",
-        "version": "{{user `version`}}",
-        "version_description": "{{user `version_description`}}",
-        "no_release" : "{{user `no_release`}}"
-      }
-    ]
-  ],
   "provisioners": [
     {
       "type": "windows-shell",
@@ -84,6 +66,24 @@
         "./scripts/dis-updates.bat"
       ]
     }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "vagrant",
+        "keep_input_artifact": true,
+        "output": "windows10_{{.Provider}}.box",
+        "vagrantfile_template": "vagrant/vagrantfile-windows10.template"
+      },
+      {
+        "type": "vagrant-cloud",
+        "box_tag": "{{user `box_tag`}}",
+        "access_token": "{{user `cloud_token`}}",
+        "version": "{{user `version`}}",
+        "version_description": "{{user `version_description`}}",
+        "no_release" : "{{user `no_release`}}"
+      }
+    ]
   ],
   "variables": {
     "iso_checksum": "cc5f1a6f8221e61e0eff1132d43ef8e98f04cc307f045579ce8f3308ba81e505",
