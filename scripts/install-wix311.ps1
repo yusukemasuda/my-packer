@@ -7,11 +7,18 @@ function EnsureNetFramework3Installed
       Write-Host "Enabling .NET Framework 3.1..." -ForegroundColor Cyan
       $Arguments = @("/c", "DISM.exe /Quiet /Online /Enable-Feature /FeatureName:NetFX3 /All")
       $process = Start-Process -FilePath "cmd.exe" -ArgumentList $Arguments -Wait -PassThru
-      if ($process.ExitCode -ne 0)
+      if ($exitCode -eq 0 -or $exitCode -eq 3010)
       {
-        exit $process.ExitCode
+          Write-Host ".NET Framework 3.1 enabled." -ForegroundColor Cyan
+          return $exitCode
       }
-      Write-Host ".NET Framework 3.1 enabled." -ForegroundColor Cyan
+      else
+      {
+          Write-Host -Object "Non zero exit code returned by the installation process : $exitCode."
+          # this wont work because of log size limitation in extension manager
+          # Get-Content $customLogFilePath | Write-Host
+          exit $exitCode
+      }
   }
 }
 
