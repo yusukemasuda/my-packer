@@ -27,6 +27,7 @@
       "type": "powershell",
       "scripts": [
         "./scripts/install-vs2017.ps1",
+        "./scripts/enable-dotnet35.ps1",
         "./scripts/install-wix311.ps1",
         "./scripts/install-wix311-vs2017.ps1",
         "./scripts/install-axocover-vs2017.ps1"
