@@ -30,7 +30,8 @@
         "./scripts/enable-dotnet35.ps1",
         "./scripts/install-wix311.ps1",
         "./scripts/install-wix311-vs2017.ps1",
-        "./scripts/install-axocover-vs2017.ps1"
+        "./scripts/install-axocover-vs2017.ps1",
+        "./scripts/install-docfx.ps1"
       ],
       "valid_exit_codes": [0,3010],
       "elevated_user":     "vagrant",

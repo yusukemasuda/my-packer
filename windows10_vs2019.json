@@ -29,7 +29,8 @@
         "./scripts/install-vs2019.ps1",
         "./scripts/enable-dotnet35.ps1",
         "./scripts/install-wix311.ps1",
-        "./scripts/install-wix311-vs2019.ps1"
+        "./scripts/install-wix311-vs2019.ps1",
+        "./scripts/install-docfx.ps1"
       ],
       "valid_exit_codes": [0,3010],
       "elevated_user":     "vagrant",
