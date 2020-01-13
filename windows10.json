@@ -31,7 +31,9 @@
         "./scripts/disable-winrm.ps1",
         "./scripts/enable-winrm.ps1",
         "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1"
+        "./scripts/win-updates.ps1",
+        "./scripts/remove-storeaaps.ps1",
+        "./scripts/cleanup-component.ps1"
       ]
     }
   ],
