@@ -48,7 +48,7 @@
         "type": "vagrant",
         "keep_input_artifact": false,
         "output": "windows10_vs2017_{{.Provider}}.box",
-        "vagrantfile_template": "vagrant/vagrantfile-windows10.template"
+        "vagrantfile_template": "vagrant/vagrantfile-windows10_vs2017.template"
       },
       {
         "type": "vagrant-cloud",
