@@ -29,7 +29,7 @@
         "./scripts/fixnetwork.ps1",
         "./scripts/disable-screensaver.ps1",
         "./scripts/disable-winrm.ps1",
-        "./scripts/enable-winrm_ja.ps1",
+        "./scripts/enable-winrm.ps1",
         "./scripts/microsoft-updates.bat",
         "./scripts/win-updates.ps1",
         "./scripts/remove-storeaaps.ps1",
