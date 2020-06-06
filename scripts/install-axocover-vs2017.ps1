@@ -18,7 +18,7 @@ function InstallVs2017AxoCoverExtension
   Write-Host "Starting Install AxoCover Visual Studio 2017 Extension ..."
   $process = Start-Process -FilePath "cmd.exe" -ArgumentList $Arguments -Wait -PassThru
   $exitCode = $process.ExitCode
-
+  Remove-Item $VsixInstaller
   if ($exitCode -ne 0)
   {
     Write-Host -Object "Non zero exit code returned by the installation process : $exitCode."
