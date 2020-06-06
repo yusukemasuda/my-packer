@@ -67,6 +67,12 @@
         "./scripts/uac-enable.bat",
         "./scripts/dis-updates.bat"
       ]
+    },
+    {
+      "type": "powershell",
+      "scripts": [
+        "./scripts/install-edge-chronium.ps1"
+      ]
     }
   ],
   "post-processors": [
