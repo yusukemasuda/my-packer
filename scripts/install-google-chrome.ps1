@@ -21,7 +21,8 @@ function InstallGoogleChrome
   Write-Host "Installing..."
   $Arguments = @("/c", "`"msiexec /i `"$MsiPath`" /quiet /norestart`"" )
   $process = Start-Process -FilePath "cmd.exe" -ArgumentList $Arguments -Wait -PassThru
-  Remove-Item $MsiPath
+  Remove-Item "$ZipExtract" -Recurse
+  Remove-Item "$ZipPath"
   if (($process.ExitCode -ne 0) -And ($process.ExitCode -ne 3010))
   {
     exit $process.ExitCode
