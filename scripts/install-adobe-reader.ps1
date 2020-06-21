@@ -20,11 +20,18 @@ function InstallAdobeReader
   Write-Host "Installing..."
   $Arguments = @("/c", "`"`"$ExePath`" /sAll /rps /l`"" )
   $process = Start-Process -FilePath "cmd.exe" -ArgumentList $Arguments -Wait -PassThru
-  Remove-Item $ExePath
-  if (($process.ExitCode -ne 0) -And ($process.ExitCode -ne 3010))
+  $exitCode = $process.ExitCode
+  if ($exitCode -eq 0 -or $exitCode -eq 3010)
   {
-    exit $process.ExitCode
+    Write-Host -Object "Installation successful"
+    Remove-Item "$ExePath"
+    Write-Host -Object "Cleaned up file: `"$ExePath`""
   }
+  else
+  {
+    Write-Host -Object "Non zero exit code returned by the installation process : $exitCode."
+  }
+  return $exitCode
 }
 
 #-------------------------------------------------------------------------------

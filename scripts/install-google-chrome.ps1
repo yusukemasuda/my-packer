@@ -21,12 +21,20 @@ function InstallGoogleChrome
   Write-Host "Installing..."
   $Arguments = @("/c", "`"msiexec /i `"$MsiPath`" /quiet /norestart`"" )
   $process = Start-Process -FilePath "cmd.exe" -ArgumentList $Arguments -Wait -PassThru
+  $exitCode = $process.ExitCode
+  if ($exitCode -eq 0 -or $exitCode -eq 3010)
+  {
+    Write-Host -Object "Installation successful"
   Remove-Item "$ZipExtract" -Recurse
   Remove-Item "$ZipPath"
-  if (($process.ExitCode -ne 0) -And ($process.ExitCode -ne 3010))
-  {
-    exit $process.ExitCode
+    Write-Host -Object "Cleaned up folder: `"$ZipExtract`""
+    Write-Host -Object "Cleaned up folder: `"$ZipPath`""
   }
+  else
+  {
+    Write-Host -Object "Non zero exit code returned by the installation process : $exitCode."
+  }
+  return $exitCode
 }
 
 #-------------------------------------------------------------------------------

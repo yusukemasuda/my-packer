@@ -1,7 +1,7 @@
 param($global:RestartRequired=0,
         $global:MoreUpdates=0,
         $global:MaxCycles=5,
-        $MaxUpdatesPerCycle=999,
+        $MaxUpdatesPerCycle=500,
         $BeginWithRestart=0)
 
 $Logfile = "C:\Windows\Temp\win-updates.log"
@@ -31,10 +31,10 @@ function Check-ContinueRestartOrEnd() {
                 Install-WindowsUpdates
             } elseif ($script:Cycles -gt $global:MaxCycles) {
                 LogWrite "Exceeded Cycle Count - Stopping"
-                & "a:\enable-winrm.ps1"
+                & "A:\enable-winrm.ps1"
             } else {
                 LogWrite "Done Installing Windows Updates"
-                & "a:\enable-winrm.ps1"
+                & "A:\enable-winrm.ps1"
             }
         }
         1 {
@@ -126,7 +126,7 @@ function Install-WindowsUpdates() {
         LogWrite 'No updates available to install...'
         $global:MoreUpdates=0
         $global:RestartRequired=0
-        & "a:\enable-winrm.ps1"
+        & "A:\enable-winrm.ps1"
         break
     }
 

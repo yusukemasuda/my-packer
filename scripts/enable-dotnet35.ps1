@@ -5,7 +5,7 @@ function EnsureNetFramework3Installed
   if ((!(Test-Path -Path $RegistryKey)) -Or ((Get-Item -Path $RegistryKey).GetValue("Install") -ne 1))
   {
       Write-Host "Enabling .NET Framework 3.1..." -ForegroundColor Cyan
-      $Arguments = @("/c", "DISM.exe /Quiet /Online /Enable-Feature /FeatureName:NetFX3 /All")
+      $Arguments = @("/c", "DISM.exe /Quiet /NoRestart /Online /Enable-Feature /FeatureName:NetFX3 /All")
       $process = Start-Process -FilePath "cmd.exe" -ArgumentList $Arguments -Wait -PassThru
       $exitCode = $process.ExitCode
       if ($exitCode -eq 0 -or $exitCode -eq 3010)
