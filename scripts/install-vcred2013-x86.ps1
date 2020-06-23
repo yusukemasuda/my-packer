@@ -1,6 +1,6 @@
 $InstallerURLs = @{
- "en" = "https://aka.ms/highdpimfc2013x64enu"
- "ja" = "https://aka.ms/highdpimfc2013x64jpn"
+ "en" = "https://aka.ms/highdpimfc2013x86enu"
+ "ja" = "https://aka.ms/highdpimfc2013x86jpn"
 }
 
 function InstallVcRed2013
@@ -32,7 +32,7 @@ function InstallVcRed2013
 }
 
 #-------------------------------------------------------------------------------
-Write-Host "Installing Visual C++ 2013 Redistributable ..." -ForegroundColor Cyan
+Write-Host "Installing Visual C++ 2013 Redistributable (x86) ..." -ForegroundColor Cyan
 
 $Lang = "en"
 Get-Culture | %{
@@ -43,5 +43,5 @@ Get-Culture | %{
 }
 Write-Host "Selected Language: [$Lang]"
 InstallVcRed2013 -InstallerURL $InstallerURLs[$Lang]
-Write-Host "Visual C++ 2013 Redistributable installed" -ForegroundColor Cyan
+Write-Host "Visual C++ 2013 Redistributable (x86) installed" -ForegroundColor Cyan
 
