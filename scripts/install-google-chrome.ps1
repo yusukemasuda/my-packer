@@ -43,5 +43,5 @@ function InstallGoogleChrome
 
 Write-Host "Installing Google Chrome ..." -ForegroundColor Cyan
 
-InstallWixToolset -InstallerURL $InstallerURL
+InstallGoogleChrome -InstallerURL $InstallerURL
 Write-Host "Google Chrome installed" -ForegroundColor Cyan
