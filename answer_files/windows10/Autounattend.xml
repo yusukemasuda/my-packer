@@ -200,6 +200,18 @@
                     <Order>14</Order>
                     <Description>Enable AutoLogon</Description>
                 </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\remove-storeaaps.ps1</CommandLine>
+                    <Description>Remove Store Apps</Description>
+                    <Order>81</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\cleanup-component.ps1</CommandLine>
+                    <Description>Clean up Windows Component</Description>
+                    <Order>82</Order>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
                 <!-- WITHOUT WINDOWS UPDATES -->
                 <!--
                 <SynchronousCommand wcm:action="add">
@@ -228,18 +240,6 @@
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <!-- END WITH WINDOWS UPDATES -->
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\remove-storeaaps.ps1</CommandLine>
-                    <Description>Remove Store Apps</Description>
-                    <Order>101</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\cleanup-component.ps1</CommandLine>
-                    <Description>Clean up Windows Component</Description>
-                    <Order>102</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
             </FirstLogonCommands>
             <ShowWindowsLive>false</ShowWindowsLive>
             <TimeZone>Tokyo Standard Time</TimeZone>
