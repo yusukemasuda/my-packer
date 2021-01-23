@@ -43,7 +43,7 @@
       {
         "type": "vagrant",
         "keep_input_artifact": false,
-        "output": "windows10_vs2017_{{.Provider}}.box",
+        "output": "windows10_eclipse_{{.Provider}}.box",
         "vagrantfile_template": "vagrant/vagrantfile-windows10_eclipse.template"
       },
       {
