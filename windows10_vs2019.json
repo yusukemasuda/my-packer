@@ -55,7 +55,8 @@
         "access_token": "{{user `cloud_token`}}",
         "version": "{{user `version`}}",
         "version_description": "{{user `version_description`}}",
-        "no_release" : "{{user `no_release`}}"
+        "no_release" : "{{user `no_release`}}",
+        "no_direct_upload" : true
       }
     ]
   ],
