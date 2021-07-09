@@ -1015,9 +1015,9 @@ $ErrorActionPreference = "Stop"
 # Install VS
 $exitCode = InstallVS -WorkLoads $WorkLoads -Sku $Sku -VSBootstrapperURL $VSBootstrapperURL -VSInstallLocation $VSInstallLocation
 
-if (($process.ExitCode -ne 0) -And ($process.ExitCode -ne 3010))
+if (($exitCode -ne 0) -And ($exitCode -ne 3010))
 {
-  exit $process.ExitCode
+  exit $exitCode
 }
 
 if (Get-Service SQLWriter -ErrorAction Ignore)
