@@ -28,6 +28,8 @@
       "scripts": [
         "./windows/scripts/install-vs2019.ps1",
         "./windows/scripts/enable-dotnet35.ps1",
+        "./windows/scripts/install-wix311.ps1",
+        "./windows/scripts/install-wix311-vs2019.ps1",
         "./windows/scripts/install-docfx.ps1"
       ],
       "valid_exit_codes": [0,3010],
