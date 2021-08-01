@@ -21,6 +21,7 @@
         "ssh_username": "vagrant",
         "switch_name": "Default Switch",
         "update": "true",
+        "desktop": "true",
         "vagrantfile_template": "",
         "vm_name": "ubuntu2004"
     },
@@ -69,6 +70,7 @@
         "environment_vars": [
             "DEBIAN_FRONTEND=noninteractive",
             "UPDATE={{user `update`}}",
+            "DESKTOP={{user `desktop`}}",
             "DISABLE_IPV6={{user `disable_ipv6`}}",
             "SSH_USERNAME={{user `ssh_username`}}",
             "SSH_PASSWORD={{user `ssh_password`}}",
@@ -79,11 +81,12 @@
         "execute_command": "echo '{{user `ssh_password`}}'|{{.Vars}} sudo -E -S bash '{{.Path}}'",
         "expect_disconnect": true,
         "scripts": [
+            "linux/scripts/install-desktop.sh",
+            "linux/scripts/install-xrdp.sh",
             "linux/scripts/update.sh",
             "linux/scripts/vagrant.sh",
             "linux/scripts/hyperv.sh",
             "linux/scripts/motd.sh",
-            "linux/scripts/minimize.sh",
             "linux/scripts/cleanup.sh"
         ],
         "type": "shell"

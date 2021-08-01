@@ -15,15 +15,17 @@ echo "==> Removing linux source"
 dpkg --list | awk '{print $2}' | grep linux-source | xargs apt-get -y purge
 echo "==> Removing documentation"
 dpkg --list | awk '{print $2}' | grep -- '-doc$' | xargs apt-get -y purge
-echo "==> Removing X11 libraries"
-apt-get -y purge libx11-data xauth libxmuu1 libxcb1 libx11-6 libxext6 libxau6 libxdmcp6
-echo "==> Removing other oddities"
-apt-get -y purge accountsservice bind9-host busybox-static command-not-found dmidecode \
-    dosfstools friendly-recovery hdparm info install-info installation-report \
-    iso-codes krb5-locales language-selector-common laptop-detect lshw mtr-tiny nano \
-    ncurses-term ntfs-3g os-prober parted pci.ids pciutils plymouth popularity-contest powermgmt-base \
-    publicsuffix python-apt-common shared-mime-info ssh-import-id \
-    tasksel tcpdump ufw usb.ids usbutils uuid-runtime xdg-user-dirs
+#### Removed to enable desktop with XWindow system (Start)
+# echo "==> Removing X11 libraries"
+# apt-get -y purge libx11-data xauth libxmuu1 libxcb1 libx11-6 libxext6 libxau6 libxdmcp6
+# echo "==> Removing other oddities"
+# apt-get -y purge accountsservice bind9-host busybox-static command-not-found dmidecode \
+#     dosfstools friendly-recovery hdparm info install-info installation-report \
+#     iso-codes krb5-locales language-selector-common laptop-detect lshw mtr-tiny nano \
+#     ncurses-term ntfs-3g os-prober parted pci.ids pciutils plymouth popularity-contest powermgmt-base \
+#     publicsuffix python-apt-common shared-mime-info ssh-import-id \
+#    tasksel tcpdump ufw usb.ids usbutils uuid-runtime xdg-user-dirs
+#### Removed to enable desktop with XWindow system (End)
 apt-get -y autoremove --purge
 
 # Clean up orphaned packages with deborphan
