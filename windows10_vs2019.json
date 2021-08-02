@@ -26,11 +26,11 @@
     {
       "type": "powershell",
       "scripts": [
-        "./scripts/install-vs2019.ps1",
-        "./scripts/enable-dotnet35.ps1",
-        "./scripts/install-wix311.ps1",
-        "./scripts/install-wix311-vs2019.ps1",
-        "./scripts/install-docfx.ps1"
+        "./windows/scripts/install-vs2019.ps1",
+        "./windows/scripts/enable-dotnet35.ps1",
+        "./windows/scripts/install-wix311.ps1",
+        "./windows/scripts/install-wix311-vs2019.ps1",
+        "./windows/scripts/install-docfx.ps1"
       ],
       "valid_exit_codes": [0,3010],
       "elevated_user":     "vagrant",
@@ -55,7 +55,8 @@
         "access_token": "{{user `cloud_token`}}",
         "version": "{{user `version`}}",
         "version_description": "{{user `version_description`}}",
-        "no_release" : "{{user `no_release`}}"
+        "no_release" : "{{user `no_release`}}",
+        "no_direct_upload" : true
       }
     ]
   ],

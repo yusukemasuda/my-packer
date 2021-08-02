@@ -25,14 +25,14 @@
       
       "floppy_files": [
         "{{user `autounattend`}}",
-        "./scripts/fixnetwork.ps1",
-        "./scripts/disable-screensaver.ps1",
-        "./scripts/disable-winrm.ps1",
-        "./scripts/enable-winrm.ps1",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1",
-        "./scripts/remove-storeaaps.ps1",
-        "./scripts/cleanup-component.ps1"
+        "./windows/scripts/fixnetwork.ps1",
+        "./windows/scripts/disable-screensaver.ps1",
+        "./windows/scripts/disable-winrm.ps1",
+        "./windows/scripts/enable-winrm.ps1",
+        "./windows/scripts/microsoft-updates.bat",
+        "./windows/scripts/win-updates.ps1",
+        "./windows/scripts/remove-storeaaps.ps1",
+        "./windows/scripts/cleanup-component.ps1"
       ]
     }
   ],
@@ -42,7 +42,7 @@
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "remote_path": "/tmp/script.bat",
       "scripts": [
-        "./scripts/enable-rdp.bat"
+        "./windows/scripts/enable-rdp.bat"
       ]
     },
     {
@@ -52,8 +52,8 @@
     {
       "type": "powershell",
       "scripts": [
-        "./scripts/set-powerplan.ps1",
-        "./scripts/disable-windows-defender.ps1"
+        "./windows/scripts/set-powerplan.ps1",
+        "./windows/scripts/disable-windows-defender.ps1"
       ]
     },
     {
@@ -61,16 +61,10 @@
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "remote_path": "/tmp/script.bat",
       "scripts": [
-        "./scripts/compile-dotnet-assemblies.bat",
-        "./scripts/set-winrm-automatic.bat",
-        "./scripts/uac-enable.bat",
-        "./scripts/dis-updates.bat"
-      ]
-    },
-    {
-      "type": "powershell",
-      "scripts": [
-        "./scripts/install-edge-chronium.ps1"
+        "./windows/scripts/compile-dotnet-assemblies.bat",
+        "./windows/scripts/set-winrm-automatic.bat",
+        "./windows/scripts/uac-enable.bat",
+        "./windows/scripts/dis-updates.bat"
       ]
     }
   ],
@@ -96,9 +90,9 @@
     "iso_checksum": "cc5f1a6f8221e61e0eff1132d43ef8e98f04cc307f045579ce8f3308ba81e505",
     "iso_checksum_type": "sha256",
     "iso_url": "https://software-download.microsoft.com/download/pr/18362.30.190401-1528.19h1_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_ja-jp.iso",
-    "autounattend": "./answer_files/windows10/Autounattend.xml",
+    "autounattend": "./windows/answer_files/windows10/Autounattend.xml",
     "cpus":"2",
-    "memory": "2048",
+    "memory": "6144",
     "disk_size": "61440",
     "disk_type_id": "1",
     "switch_name": "Default Switch",
