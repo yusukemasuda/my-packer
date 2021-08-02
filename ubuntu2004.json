@@ -1,31 +1,26 @@
 {
-    "_comment": "Build with `packer build ubuntu2004.json`",
-    "variables": {
-        "cpus": "1",
-        "disable_ipv6": "true",
-        "disk_size": "65536",
-        "headless": "false",
-        "hostname": "vagrant-2004",
-        "http_proxy": "{{env `http_proxy`}}",
-        "https_proxy": "{{env `https_proxy`}}",
-        "iso_checksum": "f11bda2f2caed8f420802b59f382c25160b114ccc665dbac9c5046e7fceaced2",
-        "iso_checksum_type": "sha256",
-        "iso_name": "ubuntu-20.04.1-legacy-server-amd64.iso",
-        "iso_path": "iso",
-        "iso_url": "http://cdimage.ubuntu.com/ubuntu-legacy-server/releases/20.04/release/ubuntu-20.04.1-legacy-server-amd64.iso",
-        "memory": "4096",
-        "no_proxy": "{{env `no_proxy`}}",
-        "preseed": "answer_files/ubuntu.cfg",
-        "ssh_fullname": "vagrant",
-        "ssh_password": "vagrant",
-        "ssh_username": "vagrant",
-        "switch_name": "Default Switch",
-        "update": "true",
-        "desktop": "true",
-        "vagrantfile_template": "",
-        "vm_name": "ubuntu2004"
-    },
     "builders": [{
+        "type": "hyperv-iso",
+        "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
+        "iso_urls": [
+            "{{user `iso_path`}}/{{user `iso_name`}}",
+            "{{user `iso_url`}}"
+        ],
+
+        "headless": "{{user `headless`}}",
+
+        "cpus": "{{user `cpus`}}",
+        "memory": "{{user `memory`}}",
+        "disk_size": "{{user `disk_size`}}",
+        "switch_name": "{{user `switch_name`}}",
+        "vm_name": "{{user `vm_name`}}",
+        "generation": 2,
+        "enable_dynamic_memory": false,
+
+        "boot_wait": "5s",
+        "shutdown_command": "echo '{{user `ssh_password`}}'|sudo -S shutdown -P now",
+        "enable_secure_boot": false,
+        "http_directory": "linux",
         "boot_command": [
             "<esc><esc><enter><wait>",
             "linux /install/vmlinuz",
@@ -43,28 +38,11 @@
             "initrd /install/initrd.gz<enter>",
             "boot<enter>"
         ],
-        "boot_wait": "5s",
-        "cpus": "{{user `cpus`}}",
-        "disk_size": "{{user `disk_size`}}",
-        "enable_dynamic_memory": false,
-        "enable_secure_boot": false,
-        "generation": 2,
-        "headless": "{{user `headless`}}",
-        "http_directory": "linux",
-        "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
-        "iso_urls": [
-            "{{user `iso_path`}}/{{user `iso_name`}}",
-            "{{user `iso_url`}}"
-        ],
-        "memory": "{{user `memory`}}",
-        "output_directory": "output-{{user `vm_name`}}-hyperv-iso",
-        "shutdown_command": "echo '{{user `ssh_password`}}'|sudo -S shutdown -P now",
         "ssh_password": "{{user `ssh_password`}}",
         "ssh_username": "{{user `ssh_username`}}",
         "ssh_timeout": "4h",
-        "switch_name": "{{user `switch_name`}}",
-        "type": "hyperv-iso",
-        "vm_name": "{{user `vm_name`}}"
+
+        "output_directory": "output-{{user `vm_name`}}-hyperv-iso"
     }],
     "provisioners": [{
         "environment_vars": [
@@ -91,10 +69,52 @@
         ],
         "type": "shell"
     }],
-    "post-processors": [{
-        "keep_input_artifact": false,
-        "output": "{{user `vm_name`}}_{{.Provider}}.box",
-        "type": "vagrant",
-        "vagrantfile_template": "{{user `vagrantfile_template`}}"
-    }]
+    "post-processors": [
+      [
+        {
+            "keep_input_artifact": false,
+            "output": "{{user `vm_name`}}_{{.Provider}}.box",
+            "type": "vagrant",
+            "vagrantfile_template": "{{user `vagrantfile_template`}}"
+        },
+        {
+            "type": "vagrant-cloud",
+            "box_tag": "{{user `box_tag`}}",
+            "access_token": "{{user `cloud_token`}}",
+            "version": "{{user `version`}}",
+            "version_description": "{{user `version_description`}}",
+            "no_release" : "{{user `no_release`}}"
+        }
+      ]
+    ],
+    "variables": {
+        "iso_checksum": "f11bda2f2caed8f420802b59f382c25160b114ccc665dbac9c5046e7fceaced2",
+        "iso_checksum_type": "sha256",
+        "iso_url": "http://cdimage.ubuntu.com/ubuntu-legacy-server/releases/20.04/release/ubuntu-20.04.1-legacy-server-amd64.iso",
+        "iso_name": "ubuntu-20.04.1-legacy-server-amd64.iso",
+        "iso_path": "iso",
+        "preseed": "answer_files/ubuntu.cfg",
+        "cpus": "2",
+        "memory": "6144",
+        "disk_size": "65536",
+        "switch_name": "Default Switch",
+        "headless": "false",
+        "hostname": "vagrant-2004",
+        "disable_ipv6": "true",
+        "http_proxy": "{{env `http_proxy`}}",
+        "https_proxy": "{{env `https_proxy`}}",
+        "no_proxy": "{{env `no_proxy`}}",
+        "ssh_fullname": "vagrant",
+        "ssh_password": "vagrant",
+        "ssh_username": "vagrant",
+        "update": "true",
+        "desktop": "true",
+        "vagrantfile_template": "",
+        "vm_name": "ubuntu2004",
+        "cloud_token": "{{env `VAGRANT_CLOUD_TOKEN`}}",
+        "box_tag": "ymasuda/ubuntu2004",
+        "version": "{{isotime \"20060102\"}}.0.0",
+        "version_description": "Ubuntu 20.04 Vagrant images updated to {{isotime \"2006-01-02\"}}.",
+        "no_release": "false"
+    }
 }
