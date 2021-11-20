@@ -874,8 +874,8 @@ $WorkLoads +=      '--add Microsoft.Net.Component.4.7.SDK '                     
 # $WorkLoads +=     '--add Microsoft.VisualStudio.Web.Mvc4.ComponentGroup '                             # ASP.NET MVC 4
 
 $Sku = "Community"
-$VSBootstrapperURL = "https://aka.ms/vs/16/release/vs_community.exe"
-$VSInstallLocation = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Community"
+$VSBootstrapperURL = "https://aka.ms/vs/16/release/vs_${Sku}.exe"
+$VSInstallLocation = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\${Sku}"
 
 $ErrorActionPreference = "Stop"
 
