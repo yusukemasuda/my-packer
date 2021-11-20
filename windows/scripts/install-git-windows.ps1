@@ -1,4 +1,4 @@
-$GitURL = "https://github.com/git-for-windows/git/releases/download/v2.24.1.windows.2/Git-2.24.1.2-64-bit.exe"
+$GitURL = "https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.2/Git-2.32.0.2-64-bit.exe"
 
 function InstallGitWindows
 {
