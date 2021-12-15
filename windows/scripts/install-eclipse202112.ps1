@@ -1,7 +1,7 @@
 
 function InstallEclipse
 {
-  $EclipseURL = "https://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2020-12/R/eclipse-jee-2020-12-R-win32-x86_64.zip"
+  $EclipseURL = "https://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2021-12/R/eclipse-jee-2021-12-R-win32-x86_64.zip"
   $LombokURL = "https://projectlombok.org/downloads/lombok.jar"
 
   $ZipFilePath = "${env:Temp}\eclipse-jee-R-win32-x86_64.zip"
