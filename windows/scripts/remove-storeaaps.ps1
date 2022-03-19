@@ -1,37 +1,41 @@
 
-Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage
-Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage
-Get-AppxPackage Microsoft.MixedReality.Portal | Remove-AppxPackage
-Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage
-Get-AppxPackage Microsoft.People | Remove-AppxPackage
-Get-AppxPackage Microsoft.Print3D | Remove-AppxPackage
-Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.ZuneMusic | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.MixedReality.Portal | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.MicrosoftOfficeHub | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.People | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Print3D | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.SkypeApp | Remove-AppxPackage
 
-Get-AppxPackage Microsoft.Microsoft3DViewer | Remove-AppxPackage
-Get-AppxPackage Microsoft.WindowsAlarms | Remove-AppxPackage
-Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage
-Get-AppxPackage Microsoft.WindowsCamera | Remove-AppxPackage
-Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage
-Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage
-Get-AppxPackage Microsoft.GetHelp | Remove-AppxPackage
-Get-AppxPackage Microsoft.Getstarted | Remove-AppxPackage
-Get-AppxPackage Microsoft.WindowsFeedbackHub | Remove-AppxPackage
-Get-AppxPackage Microsoft.MicrosoftStickyNotes | Remove-AppxPackage
-Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage
-Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage
-Get-AppxPackage Microsoft.WindowsCommunicationsApps | Remove-AppxPackage
-Get-AppxPackage Microsoft.Messaging | Remove-AppxPackage
-Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage
-Get-AppxPackage Microsoft.MSPaint | Remove-AppxPackage
-Get-AppxPackage Microsoft.Windows.Photos | Remove-AppxPackage
-Get-AppxPackage Microsoft.ScreenSketch | Remove-AppxPackage
-Get-AppxPackage Microsoft.WindowsCalculator | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Microsoft3DViewer | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsAlarms | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.ZuneVideo | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsCamera | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.YourPhone | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.BingWeather | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.GetHelp | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Getstarted | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsFeedbackHub | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.MicrosoftStickyNotes | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsSoundRecorder | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsMaps | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsCommunicationsApps | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Messaging | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Office.OneNote | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.OneConnect | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.MSPaint | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Windows.Photos | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.ScreenSketch | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsCalculator | Remove-AppxPackage
+Get-AppxPackage -allusers SpotifyAB.SpotifyMusic | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsStore | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage              # Cortana
 
-Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage
-Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage
-Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage
-Get-AppxPackage Microsoft.XboxGameOverlay | Remove-AppxPackage
-Get-AppxPackage Microsoft.XboxIdentityProvider | Remove-AppxPackage
-Get-AppxPackage Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.XboxGamingOverlay | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Xbox.TCUI | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.XboxApp | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.XboxGameOverlay | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.XboxIdentityProvider | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage
 
 
