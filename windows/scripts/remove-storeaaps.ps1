@@ -21,11 +21,14 @@ Get-AppxPackage Microsoft.WindowsSoundRecorder | Remove-AppxPackage
 Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage
 Get-AppxPackage Microsoft.WindowsCommunicationsApps | Remove-AppxPackage
 Get-AppxPackage Microsoft.Messaging | Remove-AppxPackage
+Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage
 Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage
 Get-AppxPackage Microsoft.MSPaint | Remove-AppxPackage
 Get-AppxPackage Microsoft.Windows.Photos | Remove-AppxPackage
 Get-AppxPackage Microsoft.ScreenSketch | Remove-AppxPackage
 Get-AppxPackage Microsoft.WindowsCalculator | Remove-AppxPackage
+Get-AppxPackage SpotifyAB.SpotifyMusic | Remove-AppxPackage
+Get-AppxPackage Microsoft.WindowsStore | Remove-AppxPackage
 
 Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage
 Get-AppxPackage Microsoft.Xbox.TCUI | Remove-AppxPackage

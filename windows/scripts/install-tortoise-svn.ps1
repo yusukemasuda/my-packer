@@ -28,7 +28,7 @@ function InstallTortoiseSVN
   #    Install TortoiseSVN
   # -------------------------------------------------------
   Write-Host "Installing Application..."
-  $Arguments = @("/c", "`"msiexec /i `"$AppMsiPath`" /quiet /norestart`"" )
+  $Arguments = @("/c", "`"msiexec /i `"$AppMsiPath`" /quiet /norestart ADDLOCAL=ALL`"" )
   $process = Start-Process -FilePath "cmd.exe" -ArgumentList $Arguments -Wait -PassThru
   $exitCode = $process.ExitCode
   if ($exitCode -eq 0 -or $exitCode -eq 3010)
