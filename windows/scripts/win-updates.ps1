@@ -1,6 +1,6 @@
 param($global:RestartRequired=0,
         $global:MoreUpdates=0,
-        $global:MaxCycles=5,
+        $global:MaxCycles=20,
         $MaxUpdatesPerCycle=500,
         $BeginWithRestart=0)
 
