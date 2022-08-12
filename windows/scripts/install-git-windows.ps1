@@ -1,4 +1,4 @@
-$GitURL = "https://github.com/git-for-windows/git/releases/download/v2.24.1.windows.2/Git-2.24.1.2-64-bit.exe"
+$GitURL = "https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.2/Git-2.32.0.2-64-bit.exe"
 
 function InstallGitWindows
 {
@@ -6,7 +6,10 @@ function InstallGitWindows
   $FilePath = "${env:Temp}\git-for-windows-installer.exe"
 
   Write-Host "Downloading Git for Windows ..."
-  Remove-Item -Path "$FilePath"
+  if (Test-Path -Path "$FilePath")
+  {
+    Remove-Item -Path "$FilePath"
+  }
   Invoke-WebRequest -Uri "$GitURL" -OutFile "$FilePath"
 
   Write-Host "Starting Install Git for Windows ..."
@@ -32,5 +35,5 @@ $ErrorActionPreference = "Stop"
 
 $exitCode = InstallGitWindows
 
-Write-Host -Object "Installation successful"
+Write-Host -Object "Installation successful completed."
 exit $exitCode

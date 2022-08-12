@@ -57,6 +57,13 @@
       ]
     },
     {
+      "type": "powershell",
+      "scripts": [
+        "./windows/scripts/install-edge-chronium.ps1",
+        "./windows/scripts/cleanup-component.ps1"
+      ]
+    },
+    {
       "type": "windows-shell",
       "execute_command": "{{ .Vars }} cmd /c \"{{ .Path }}\"",
       "remote_path": "/tmp/script.bat",
@@ -87,13 +94,13 @@
     ]
   ],
   "variables": {
-    "iso_checksum": "cc5f1a6f8221e61e0eff1132d43ef8e98f04cc307f045579ce8f3308ba81e505",
+    "iso_checksum": "ecee4ab4ab6a9869d9ea1ba618e3d2cd639b177bc88a229c19d42d16127ffaf4",
     "iso_checksum_type": "sha256",
-    "iso_url": "https://software-download.microsoft.com/download/pr/18362.30.190401-1528.19h1_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_ja-jp.iso",
+    "iso_url": "https://software-static.download.prss.microsoft.com/db/download/444969d5-f34g-4e03-ac9d-1f9786c69161/19044.1288.211006-0501.21h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_ja-jp.iso",
     "autounattend": "./windows/answer_files/windows10/Autounattend.xml",
     "cpus":"2",
     "memory": "6144",
-    "disk_size": "61440",
+    "disk_size": "81920",
     "disk_type_id": "1",
     "switch_name": "Default Switch",
     "headless": "false",
