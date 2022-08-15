@@ -39,6 +39,19 @@
     {
       "type": "powershell",
       "scripts": [
+        "./windows/scripts/install-nodejs.ps1"
+      ],
+      "valid_exit_codes": [0,3010],
+      "elevated_user":     "vagrant",
+      "elevated_password": "vagrant"
+    },
+    {
+      "type": "windows-restart",
+      "restart_timeout": "{{user `restart_timeout`}}"
+    },
+    {
+      "type": "powershell",
+      "scripts": [
         "./windows/scripts/install-vs2019.ps1",
         "./windows/scripts/install-wix311.ps1",
         "./windows/scripts/install-wix311-vs2019.ps1",
